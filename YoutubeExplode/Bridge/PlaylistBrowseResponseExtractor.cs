@@ -82,6 +82,22 @@ internal partial class PlaylistBrowseResponseExtractor : IPlaylistExtractor
             .GetStringOrNull()
     );
 
+    public int? TryGetPlaylistLength() => Memo.Cache(this, () =>
+        int.TryParse(
+            TryGetSidebarPrimary()?
+                .GetPropertyOrNull("stats")?
+                .EnumerateArrayOrNull()?
+                .ElementAtOrNull(0)?
+                .GetPropertyOrNull("runs")?
+                .EnumerateArrayOrNull()?
+                .ElementAtOrNull(0)?
+                .GetPropertyOrNull("text")?
+                .GetStringOrNull()
+            , out int length) ?
+        (int?)length :
+        null
+    );
+
     public string? TryGetPlaylistDescription() => Memo.Cache(this, () =>
         TryGetSidebarPrimary()?
             .GetPropertyOrNull("description")?

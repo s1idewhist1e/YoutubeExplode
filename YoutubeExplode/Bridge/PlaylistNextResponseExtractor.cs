@@ -42,6 +42,8 @@ internal partial class PlaylistNextResponseExtractor : IPlaylistExtractor
 
     public string? TryGetPlaylistDescription() => null;
 
+    public int? TryGetPlaylistLength() => null;
+    
     public IReadOnlyList<ThumbnailExtractor> GetPlaylistThumbnails() => Memo.Cache(this, () =>
         GetVideos()
             .FirstOrDefault()?

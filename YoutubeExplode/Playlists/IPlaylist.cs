@@ -32,6 +32,14 @@ public interface IPlaylist
     Author? Author { get; }
 
     /// <summary>
+    /// Number of videos in a playlist.
+    /// </summary>
+    /// <remarks>
+    /// May be null in case of arbitrary length auto-generated playlists.
+    /// </remarks>
+    int? Length { get; }
+
+    /// <summary>
     /// Playlist thumbnails.
     /// </summary>
     IReadOnlyList<Thumbnail> Thumbnails { get; }

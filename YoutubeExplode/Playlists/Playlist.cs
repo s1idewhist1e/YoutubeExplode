@@ -21,6 +21,9 @@ public class Playlist : IPlaylist
     /// <inheritdoc />
     public Author? Author { get; }
 
+    /// <inheritdoc />
+    public int? Length { get; }
+
     /// <summary>
     /// Playlist description.
     /// </summary>
@@ -36,12 +39,14 @@ public class Playlist : IPlaylist
         PlaylistId id,
         string title,
         Author? author,
+        int? length,
         string description,
         IReadOnlyList<Thumbnail> thumbnails)
     {
         Id = id;
         Title = title;
         Author = author;
+        Length = length;
         Description = description;
         Thumbnails = thumbnails;
     }

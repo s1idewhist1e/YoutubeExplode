@@ -23,6 +23,9 @@ public class PlaylistSearchResult : ISearchResult, IPlaylist
     public Author? Author { get; }
 
     /// <inheritdoc />
+    public int? Length { get; }
+
+    /// <inheritdoc />
     public IReadOnlyList<Thumbnail> Thumbnails { get; }
 
     /// <summary>

@@ -59,6 +59,8 @@ public class PlaylistClient
             ? new Author(channelId, channelTitle)
             : null;
 
+        var length = playlistExtractor.TryGetPlaylistLength();
+
         // System playlists have no description
         var description = playlistExtractor.TryGetPlaylistDescription() ?? "";
 
@@ -84,7 +86,7 @@ public class PlaylistClient
             })
             .ToArray();
 
-        return new Playlist(playlistId, title, author, description, thumbnails);
+        return new Playlist(playlistId, title, author, length, description, thumbnails);
     }
 
     /// <summary>

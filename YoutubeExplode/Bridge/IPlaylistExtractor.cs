@@ -10,6 +10,8 @@ internal interface IPlaylistExtractor
 
     string? TryGetPlaylistChannelId();
 
+    int? TryGetPlaylistLength();
+
     string? TryGetPlaylistDescription();
 
     IReadOnlyList<ThumbnailExtractor> GetPlaylistThumbnails();
